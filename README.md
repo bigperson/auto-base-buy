@@ -82,7 +82,7 @@ use Bigperson\AutoBaseBuy\Models\CarModification;
 
 class User extends Model
 {
-     public function car_modification()
+     public function car()
      {
          return $this->belongsTo(CarModification::class, 'id_car_modification');
      }
