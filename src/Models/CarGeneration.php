@@ -23,7 +23,7 @@ class CarGeneration extends Model
     /**
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      */
-    public function car_model()
+    public function carModel()
     {
         return $this->belongsTo(CarModel::class, 'id_car_model');
     }
@@ -31,7 +31,7 @@ class CarGeneration extends Model
     /**
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
      */
-    public function car_series()
+    public function carSeries()
     {
         return $this->hasMany(CarSerie::class, 'id_car_generation');
     }
@@ -39,7 +39,7 @@ class CarGeneration extends Model
     /**
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      */
-    public function car_type()
+    public function carType()
     {
         return $this->belongsTo(CarType::class, 'id_car_type');
     }

@@ -23,7 +23,7 @@ class CarMark extends Model
     /**
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      */
-    public function car_type()
+    public function carType()
     {
         return $this->belongsTo(CarMark::class, 'id_car_type');
     }
@@ -31,13 +31,8 @@ class CarMark extends Model
     /**
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
      */
-    public function car_models()
+    public function carModels()
     {
         return $this->hasMany(CarModel::class, 'id_car_mark');
-    }
-
-    public function searchableAs()
-    {
-        return 'id_car_mark';
     }
 }

@@ -20,7 +20,7 @@ class CarModification extends Model
      */
     protected $table = 'car_modification';
 
-    public function car_serie()
+    public function carSerie()
     {
         return $this->belongsTo(CarSerie::class, 'id_car_serie');
     }
@@ -28,7 +28,7 @@ class CarModification extends Model
     /**
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      */
-    public function car_model()
+    public function carModel()
     {
         return $this->belongsTo(CarModel::class, 'id_car_model');
     }
@@ -36,7 +36,7 @@ class CarModification extends Model
     /**
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      */
-    public function car_type()
+    public function carType()
     {
         return $this->belongsTo(CarType::class, 'id_car_type');
     }

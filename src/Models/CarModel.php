@@ -23,7 +23,7 @@ class CarModel extends Model
     /**
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      */
-    public function car_mark()
+    public function carMark()
     {
         return $this->belongsTo(CarMark::class, 'id_car_mark');
     }
@@ -31,7 +31,7 @@ class CarModel extends Model
     /**
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
      */
-    public function car_generations()
+    public function carGenerations()
     {
         return $this->hasMany(CarGeneration::class, 'id_car_model');
     }
@@ -39,7 +39,7 @@ class CarModel extends Model
     /**
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
      */
-    public function car_series()
+    public function carSeries()
     {
         return $this->hasMany(CarSerie::class, 'id_car_model');
     }
@@ -47,7 +47,7 @@ class CarModel extends Model
     /**
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      */
-    public function car_type()
+    public function carType()
     {
         return $this->belongsTo(CarType::class, 'id_car_type');
     }
@@ -55,7 +55,7 @@ class CarModel extends Model
     /**
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
      */
-    public function car_modifications()
+    public function carModifications()
     {
         return $this->hasMany(CarModification::class, 'id_car_model');
     }

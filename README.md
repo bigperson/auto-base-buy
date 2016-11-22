@@ -48,7 +48,7 @@ php artisan migrate
 
 И перегененрировать autoload.php: `composer dump-autoload`
 
-В database/csv/* создадутся csv файлы для иморта. Их необходимо будет заменить на оригинальные, после покупке на https://auto.basebuy.ru/.
+В database/csv/* создадутся csv файлы для иморта. Их необходимо будет заменить на оригинальные, после покупки на https://auto.basebuy.ru/.
 
 Далее необходимо применить seeds:
 ```
@@ -103,11 +103,11 @@ class CarModification extends BaseCarModification
      */
     public function getFullNameAttribute()
     {
-        $string = $this->car_model->car_mark->name;
-        $string .= ' '.$this->car_model->name;
-        $string .= ' '.$this->car_serie->name;
-        $string .= ' '.$this->car_serie->car_generation->name;
-        $string .= ' ('.$this->car_serie->car_generation->year_begin.'-'.$this->car_serie->car_generation->year_end.')';
+        $string = $this->carModel->carMark->name;
+        $string .= ' '.$this->carModel->name;
+        $string .= ' '.$this->carSerie->name;
+        $string .= ' '.$this->carSerie->carGeneration->name;
+        $string .= ' ('.$this->carSerie->carGeneration->year_begin.'-'.$this->carSerie->carGeneration->year_end.')';
         $string .= ' '.$this->name;
 
         return $string;
