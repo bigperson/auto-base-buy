@@ -2,7 +2,7 @@
     "name": "bigperson/auto-base-buy",
     "description": "The package allows you to access data through the base car by model",
     "license": "MIT",
-    "version": "0.1",
+    "version": "0.1.1",
     "authors": [
         {
             "name": "Anton Kartsev",
