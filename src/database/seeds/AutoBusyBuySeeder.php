@@ -11,15 +11,14 @@ class AutoBusyBuySeeder extends Seeder
      */
     public function run()
     {
-
-        $tables = array(
+        $tables = [
             'car_type',
             'car_mark',
             'car_model',
             'car_generation',
             'car_serie',
-            'car_modification'
-        );
+            'car_modification',
+        ];
 
         foreach ($tables as $table) {
             DB::table($table)->delete();
@@ -31,26 +30,27 @@ class AutoBusyBuySeeder extends Seeder
                 DB::table($table)->insert($data);
             }
         }
-
     }
 
     /**
-     * Collect data from a given CSV file and return as array
+     * Collect data from a given CSV file and return as array.
      *
      * @param $filename
      * @param string $delimitor
      * @param string $enclosure
+     *
      * @return array|bool
+     *
      * @internal param string $deliminator
      */
-    private function seedFromCSV($filename, $delimitor = ",", $enclosure = "'")
+    private function seedFromCSV($filename, $delimitor = ',', $enclosure = "'")
     {
         if (!file_exists($filename) || !is_readable($filename)) {
             return false;
         }
 
         $header = null;
-        $data = array();
+        $data = [];
 
         if (($handle = fopen($filename, 'r')) !== false) {
             while (($row = fgetcsv($handle, 1000, $delimitor, $enclosure)) !== false) {

@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class CarMark extends Model
 {
     /**
-     * The primary column associated with the table
+     * The primary column associated with the table.
      *
      * @var string
      */
@@ -25,7 +25,7 @@ class CarMark extends Model
      */
     public function carType()
     {
-        return $this->belongsTo(CarMark::class, 'id_car_type');
+        return $this->belongsTo(self::class, 'id_car_type');
     }
 
     /**
