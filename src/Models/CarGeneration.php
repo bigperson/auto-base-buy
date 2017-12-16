@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class CarGeneration extends Model
 {
     /**
-     * The primary column associated with the table
+     * The primary column associated with the table.
      *
      * @var string
      */

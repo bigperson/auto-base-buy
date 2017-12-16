@@ -14,7 +14,7 @@ class CarType extends Model
     protected $table = 'car_type';
 
     /**
-     * The primary column associated with the table
+     * The primary column associated with the table.
      *
      * @var string
      */
