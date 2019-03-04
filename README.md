@@ -19,22 +19,11 @@
 composer require bigperson/auto-base-buy
 ```
 
-Далее необходимо зарегистровать новый сервис-провайдер в config/app.php:
-
-```php
-...
-'providers' => [
-    ...
-     Bigperson\AutoBaseBuy\AutoBaseBuyServiceProvider::class,
-],
-...
-```
-
 ### Ипорт базы автомобилей
 Сначала необходимо создать необходимые таблицы в базе данных, для этого импортируйте файлы миграций из пакета используя artisan:
 
 ```
- php artisan vendor:publish --tag=migrations --provider=Bigperson\AutoBaseBuy\AutoBaseBuyServiceProvider
+ php artisan vendor:publish --tag=migrations --provider="Bigperson\AutoBaseBuy\AutoBaseBuyServiceProvider"
 ```
 После чего необходимо применить миграции:
 ```
@@ -44,7 +33,7 @@ php artisan migrate
 Далее необходимо импортировать seeds:
 
 ```
- php artisan vendor:publish --tag=seeds --provider=Bigperson\AutoBaseBuy\AutoBaseBuyServiceProvider
+ php artisan vendor:publish --tag=seeds --provider="Bigperson\AutoBaseBuy\AutoBaseBuyServiceProvider"
 ```
 
 И перегененрировать autoload.php: `composer dump-autoload`

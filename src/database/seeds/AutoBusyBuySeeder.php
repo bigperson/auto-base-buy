@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\DB;
 
 class AutoBusyBuySeeder extends Seeder
 {
@@ -55,14 +56,93 @@ class AutoBusyBuySeeder extends Seeder
         if (($handle = fopen($filename, 'r')) !== false) {
             while (($row = fgetcsv($handle, 1000, $delimitor, $enclosure)) !== false) {
                 if (!$header) {
-                    $header = $row;
+                    $header = $this->replaceArrayValues($row, [
+                        'date_create' => 'created_at',
+                        'date_update' => 'updated_at',
+                    ]);
                 } else {
-                    $data[] = array_combine($header, $row);
+                    $row = array_combine($header, $row);
+
+                    $row = $this->replaceNullString($row);
+                    $row = $this->timestampsToDatetime($row, ['created_at', 'updated_at']);
+
+                    $data[] = $row;
                 }
             }
             fclose($handle);
         }
 
         return $data;
+    }
+
+    /**
+     * Replace array values.
+     *
+     * @param array $array
+     * @param array $replacement
+     *
+     * @return array
+     */
+    private function replaceArrayValues($array, $replacement)
+    {
+        $result = [];
+
+        foreach ($array as $key => $value) {
+            if (isset($replacement[$value])) {
+                $result[$key] = $replacement[$value];
+            } else {
+                $result[$key] = $value;
+            }
+        }
+
+        return $result;
+    }
+
+    /**
+     * Replace timestamp fields in array to datetime.
+     *
+     * @param array $array
+     * @param array $timestampFields
+     *
+     * @return array
+     */
+    private function timestampsToDatetime($array, $timestampFields)
+    {
+        $result = [];
+
+        foreach ($array as $key => $value) {
+
+            if ((!empty($value)) && in_array($key, $timestampFields)) {
+                $result[$key] = date("Y-m-d H:i:s", $value);
+            } else {
+                $result[$key] = $value;
+            }
+        }
+
+        return $result;
+    }
+
+    /**
+     * Replace NULL sting value with type null.
+     *
+     * @param array $array
+     * @param array $timestampFields
+     *
+     * @return array
+     */
+    private function replaceNullString($array)
+    {
+        $result = [];
+
+        foreach ($array as $key => $value) {
+
+            if ($value == 'NULL') {
+                $result[$key] = null;
+            } else {
+                $result[$key] = $value;
+            }
+        }
+
+        return $result;
     }
 }
