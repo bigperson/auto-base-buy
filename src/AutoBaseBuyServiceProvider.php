@@ -33,6 +33,5 @@ class AutoBaseBuyServiceProvider extends ServiceProvider
      */
     public function register()
     {
-
     }
 }

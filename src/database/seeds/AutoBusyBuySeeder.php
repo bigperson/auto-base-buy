@@ -111,9 +111,8 @@ class AutoBusyBuySeeder extends Seeder
         $result = [];
 
         foreach ($array as $key => $value) {
-
             if ((!empty($value)) && in_array($key, $timestampFields)) {
-                $result[$key] = date("Y-m-d H:i:s", $value);
+                $result[$key] = date('Y-m-d H:i:s', $value);
             } else {
                 $result[$key] = $value;
             }
@@ -135,7 +134,6 @@ class AutoBusyBuySeeder extends Seeder
         $result = [];
 
         foreach ($array as $key => $value) {
-
             if ($value == 'NULL') {
                 $result[$key] = null;
             } else {
