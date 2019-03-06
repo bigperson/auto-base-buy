@@ -17,6 +17,8 @@ class CreateCarModificationTable extends Migration
             $table->integer('id_car_serie')->index('id_car_serie');
             $table->integer('id_car_model')->index('id_car_model');
             $table->string('name');
+            $table->string('start_production_year')->nullable();
+            $table->string('end_production_year')->nullable();
             $table->integer('id_car_type')->index('id_car_type');
             $table->timestamps();
         });
