@@ -14,7 +14,8 @@
     "extra": {
         "laravel": {
             "providers": [
-                "Bigperson\\AutoBaseBuy\\AutoBaseBuyServiceProvider"
+                "Bigperson\\AutoBaseBuy\\AutoBaseBuyServiceProvider",
+                "Bigperson\\AutoBaseBuy\\ApiServiceProvider"
             ]
         }
     },

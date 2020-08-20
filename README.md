@@ -45,6 +45,19 @@ php artisan migrate
 php artisan db:seed --class=AutoBusyBuySeeder
 ```
 
+## Обновление базы автомобилей через API
+Вы можете обновлять базу по API. Для этого потребуется купить доступ
+
+Для начала установим необходимые зависимости SDK:
+```
+composer require basebuy/basebuy-sdk-php
+```
+
+Добавить в .env данные для доступа к API
+```
+AUTO_BASE_BAY_API_KEY=
+```
+
 ## Использование
 
 Использовать пакет достаточно просто. Вы можете вызывать модели в контроллерах:
@@ -106,7 +119,7 @@ class CarModification extends BaseCarModification
 ```
 
 
-##Лицензия
+## Лицензия
 
 Данный пакет (не включая базу данных) является открытым кодом под лицензией [MIT license](https://opensource.org/licenses/MIT).
 
