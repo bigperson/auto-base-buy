@@ -5,11 +5,11 @@
     "authors": [
         {
             "name": "Anton Kartsev",
-            "email": "anton@klin.ru"
+            "email": "anton@alarmcrm.ru"
         }
     ],
     "require": {
-        "php": "^5.6 || ^7.0"
+        "php": "^5.6 || ^7.0 || ^8.0"
     },
     "extra": {
         "laravel": {
